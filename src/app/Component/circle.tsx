@@ -1,12 +1,28 @@
 'use client'
-import {useRef,useEffect} from 'react';
-
-export default function Circle ():JSX.Element{
+import react from "react"
+interface CircleProps{
+    cx:number;
+    cy:number;
+    id:string;
+    radius?:number;
+    onClick?:()=>void;
+    onMouseDown?:(event:React.MouseEvent)=>void;
+    onMouseUp?:(event:React.MouseEvent)=>void;
+    isSelected?:boolean
+}
+export default function Circle ({
+    cx,cy,id,radius=20,onClick,onMouseDown,onMouseUp,isSelected=false}:CircleProps
+):JSX.Element{
 
     return (
-    <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg">
-  <circle r="45" cx="50" cy="50" stroke="black" stroke-width="3" fill="white" />
-</svg> 
+  <circle r={radius} cx={cx} cy={cy} id={id} stroke="black" strokeWidth="3" fill="white"
+        className={`circle ${isSelected ?'selected':''}`}  
+
+            onClick={onClick}
+
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}
+        />
     )
 
 };

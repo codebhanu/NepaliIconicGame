@@ -12,7 +12,7 @@ interface CircleProps{
 }
 export default function Circle ({
     cx,cy,id,radius=20,onClick,onMouseDown,onMouseUp,isSelected=false}:CircleProps
-):JSX.Element{
+){
 
     return (
   <circle r={radius} cx={cx} cy={cy} id={id} stroke="black" strokeWidth="3" fill="white"
